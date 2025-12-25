@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Lirochê</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-row">
+            <a class="brand" href="index.html">
+                <span class="brand__logo" aria-hidden="true">🧶</span>
+                <span class="brand__name">Lirochê</span>
+            </a>
+
+            <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+
+            <nav class="nav" id="nav">
+                <a class="nav__link" href="index.html">Início</a>
+                <a class="nav__link is-active" href="catalogo.html">Catálogo</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="section">
+        <div class="container">
+            <div class="section-head">
+                <h1 class="h2">Catálogo</h1>
+                <p class="muted">Toque nas fotos para alternar. Produtos separados por categoria.</p>
+            </div>
+
+            <div class="tabs" role="tablist" aria-label="Categorias do catálogo">
+                <button class="tab is-active" role="tab" aria-selected="true" data-tab="chaveiros">Chaveiros</button>
+                <button class="tab" role="tab" aria-selected="false" data-tab="plantas">Plantas & Vasinhos</button>
+            </div>
+
+            <div class="toolbar">
+                <input id="searchInput" class="input" type="search"
+                    placeholder="Buscar por nome (ex: 'vasinho', 'abelha')..." />
+                <select id="sortSelect" class="select">
+                    <option value="featured">Ordenar: destaque</option>
+                    <option value="price_asc">Preço: menor → maior</option>
+                    <option value="price_desc">Preço: maior → menor</option>
+                    <option value="name_asc">Nome: A → Z</option>
+                </select>
+            </div>
+
+            <div id="catalogGrid" class="grid grid--3"></div>
+
+            <div id="emptyState" class="empty" hidden>
+                <h3>Nenhum produto encontrado</h3>
+                <p class="muted">Tente outro termo na busca.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-row">
+            <p class="muted small">© <span id="year"></span> • Lirochê</p>
+            <p class="muted small">Feito com carinho 🧵</p>
+        </div>
+    </footer>
+    <div class="lightbox" id="lightbox" aria-hidden="true">
+        <button class="lightbox__close" aria-label="Fechar imagem">&times;</button>
+        <img id="lightboxImg" alt="">
+    </div>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
