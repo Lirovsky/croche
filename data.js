@@ -32,8 +32,9 @@ const STORE = {
             badge: "",
             featured: true,
             photos: [
-                "img/polvinho_medio1.jpg",
-                "img/polvinho_medio3.jpg",
+                "img/polvinho_medio9.jpg",
+                "img/polvinho_medio10.jpg",
+                "img/polvinho_medio11.jpg",
                 "img/polvinho_medio4.jpg",
                 "img/polvinho_medio5.jpg",
                 "img/polvinho_medio6.jpg",
@@ -50,11 +51,12 @@ const STORE = {
             badge: "",
             featured: true,
             photos: [
+                "img/polvinho_pequeno9.jpg",
+                "img/polvinho_pequeno10.jpg",
+                "img/polvinho_pequeno11.jpg",
                 "img/polvinho_pequeno1.jpg",
                 "img/polvinho_pequeno2.jpg",
-                "img/polvinho_pequeno3.jpg",
-                "img/polvinho_pequeno7.jpg",
-                "img/polvinho_pequeno8.jpg",
+
             ]
         },
         {
@@ -66,6 +68,8 @@ const STORE = {
             badge: "",
             featured: false,
             photos: [
+                "img/polvinho_pequeno12.jpg",
+                "img/polvinho_pequeno13.jpg",
                 "img/polvinho_pequeno4.jpg",
                 "img/polvinho_pequeno5.jpg",
                 "img/polvinho_pequeno6.jpg"
@@ -75,12 +79,16 @@ const STORE = {
             id: "key-polvinho-grande",
             category: "chaveiros",
             name: "Chaveiro Polvinho Grande",
-            price: 27.90,
+            price: 37.90,
             description: "Peso 50g, tamanho 12x12x20",
             badge: "",
             featured: false,
             photos: [
-                "img/polvinho_grande1.jpg"
+                "img/polvinho_grande4.jpg",
+                "img/polvinho_grande5.jpg",
+                "img/polvinho_grande3.jpg",
+                "img/polvinho_grande6.jpg",
+                "img/polvinho_grande1.jpg",
             ]
         },
         {
@@ -92,8 +100,12 @@ const STORE = {
             badge: "",
             featured: false,
             photos: [
+                "img/tulipa3.jpg",
+                "img/tulipa4.jpg",
+                "img/tulipa5.jpg",
+                "img/tulipa6.jpg",
                 "img/tulipa1.jpg",
-                "img/tulipa2.jpg"
+                "img/tulipa2.jpg",
             ]
         },
         {
@@ -105,8 +117,11 @@ const STORE = {
             badge: "",
             featured: false,
             photos: [
+                "img/lily5.jpg",
+                "img/lily6.jpg",
+                "img/lily4.jpg",
                 "img/lily1.jpg",
-                "img/lily2.jpg"
+                "img/lily2.jpg",
             ]
         },
         {
@@ -118,8 +133,12 @@ const STORE = {
             badge: "",
             featured: false,
             photos: [
-                "img/cacto1.jpg",
+                "img/cacto6.jpg",
+                "img/cacto5.jpg",
+                "img/cacto4.jpg",
+                "img/cacto3.jpg",
                 "img/cacto2.jpg",
+                "img/cacto1.jpg",
             ]
         },
 
@@ -133,8 +152,12 @@ const STORE = {
             badge: "COMBO",
             featured: true,
             photos: [
+                "img/kit_love3.jpg",
+                "img/kit_love4.jpg",
+                "img/kit_love5.jpg",
+                "img/kit_love6.jpg",
                 "img/kit_love1.jpg",
-                "img/kit_love2.jpg"
+                "img/kit_love2.jpg",
             ]
         },
         {
@@ -175,6 +198,10 @@ const STORE = {
             badge: "",
             featured: true,
             photos: [
+                "img/vasinho_rosa3.jpg",
+                "img/vasinho_rosa4.jpg",
+                "img/vasinho_rosa5.jpg",
+                "img/vasinho_rosa6.jpg",
                 "img/vasinho_rosa1.jpg",
                 "img/vasinho_rosa2.jpg",
             ]
@@ -188,6 +215,9 @@ const STORE = {
             badge: "",
             featured: true,
             photos: [
+                "img/vasinho_suculenta4.jpg",
+                "img/vasinho_suculenta5.jpg",
+                "img/vasinho_suculenta6.jpg",
                 "img/vasinho_suculenta1.jpg",
                 "img/vasinho_suculenta2.jpg",
                 "img/vasinho_suculenta3.jpg",
@@ -202,6 +232,10 @@ const STORE = {
             badge: "",
             featured: true,
             photos: [
+                "img/vasinho_cacto3.jpg",
+                "img/vasinho_cacto4.jpg",
+                "img/vasinho_cacto5.jpg",
+                "img/vasinho_cacto6.jpg",
                 "img/vasinho_cacto1.jpg",
                 "img/vasinho_cacto2.jpg",
             ]
@@ -215,9 +249,31 @@ const STORE = {
             badge: "",
             featured: true,
             photos: [
+                "img/vasinho_sortido4.jpg",
+                "img/vasinho_sortido5.jpg",
+                "img/vasinho_sortido6.jpg",
+                "img/vasinho_sortido7.jpg",
                 "img/vasinho_sortido1.jpg",
                 "img/vasinho_sortido2.jpg",
                 "img/vasinho_sortido3.jpg",
+            ]
+        },
+        {
+            id: "vasinho_sortido",
+            category: "plantas",
+            name: "Tulipa Coração",
+            price: 29.90,
+            description: "Flor de tulipa com recheio em formato de coração.",
+            badge: "",
+            featured: true,
+            photos: [
+                "img/tulipa_vaso1.jpg",
+                "img/tulipa_vaso2.jpg",
+                "img/tulipa_vaso3.jpg",
+                "img/tulipa_vaso4.jpg",
+                "img/tulipa_vaso5.jpg",
+                "img/tulipa_vaso6.jpg",
+
             ]
         }
     ]
