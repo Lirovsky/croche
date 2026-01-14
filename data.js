@@ -262,7 +262,7 @@ const STORE = {
             id: "vasinho_sortido",
             category: "plantas",
             name: "Tulipa Coração",
-            price: 29.90,
+            price: 79.90,
             description: "Flor de tulipa com recheio em formato de coração.",
             badge: "",
             featured: true,
