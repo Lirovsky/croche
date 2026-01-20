@@ -23,93 +23,34 @@
             <nav class="nav" id="nav">
                 <a class="nav__link is-active" href="index.html">Início</a>
                 <a class="nav__link" href="catalogo.html">Catálogo</a>
+                <a class="nav__link" href="combos.html">Combos</a>
+
             </nav>
         </div>
     </header>
 
     <main>
-        <section class="section" id="promocoes">
+        <section class="section" id="cores">
             <div class="container">
                 <div class="section-head">
-                    <h2>Promoções e Combos</h2>
-                    <p class="muted">Aproveite as ofertas especiais que preparei para você!</p>
+                    <h2 id="personalTitle">Cores disponíveis</h2>
+                    <p class="muted" id="personalText"></p>
                 </div>
 
-                <div class="combo-wrap">
-                    <article class="combo">
-                        <div class="combo__head">
-                            <h3>Combo Vasinhos</h3>
-                            <!-- <span class="tag">Mais pedido</span> -->
-                        </div>
+                <div class="colors" id="colorsGrid"></div>
 
-                        <ul class="combo__list">
-                            <li><strong>1</strong> por <strong>R$ 29,90</strong></li>
-                            <li><strong>2</strong> por <strong>R$ 54,90</strong></li>
-                            <li><strong>3</strong> por <strong>R$ 79,90</strong> <span class="pill">+ 50% OFF em
-                                    chaveiro</span></li>
-                            <li><strong>4</strong> por <strong>R$ 109,90</strong> <span class="pill">+ chaveiro
-                                    grátis</span></li>
-                        </ul>
-
-                        <div class="combo__head">
-                            <h3>Combo Floral</h3>
-                        </div>
-
-                        <ul class="combo__list">
-                            <li><strong>2 vasos florais </strong> por <strong>R$ 139,90</strong></li>
-                        </ul>
-
-                        <div class="combo__head">
-                            <h3>Combo Polvinhos</h3>
-                        </div>
-
-                        <ul class="combo__list">
-                            <li><strong>Pequeno + Médio</strong> por <strong>R$ 27,90</strong></li>
-                            <li><strong>Pequeno + Médio + Grande</strong> por <strong>R$ 59,90</strong></li>
-                        </ul>
-
-                        <div class="combo__head">
-                            <h3>Combo Chaveirinhos</h3>
-                        </div>
-
-                        <ul class="combo__list">
-                            <li><strong>1</strong> por <strong>R$ 12,90</strong></li>
-                            <li><strong>2</strong> por <strong>R$ 22,90</strong></li>
-                            <li><strong>3</strong> por <strong>R$ 29,90</strong></li>
-                        </ul>
-
-                        <p class="muted small">
-                            Observação: combos podem ser mistos (cores/modelos) ou iguais.
-                        </p>
-                    </article>
-
-                    <article class="combo combo--soft">
-                        <div class="combo__head">
-                            <h3 id="personalTitle">Personalização</h3>
-                            <span class="tag tag--soft">Cores disponíveis</span>
-                        </div>
-
-                        <p class="muted" id="personalText" style="margin: 0 0 30px;"></p>
-
-                        <div class="colors" id="colorsGrid"></div>
-
-                        <p class="muted small" style="margin-top: 30px;">
-                            As cores podem variar um pouco conforme o lote do fio e a iluminação da foto.
-                        </p>
-                    </article>
-
-                </div>
+                <p class="muted small" style="margin-top: 16px;">
+                    As cores podem variar um pouco conforme o lote do fio e a iluminação da foto.
+                </p>
             </div>
         </section>
 
         <section class="section">
             <div class="container">
                 <div class="section-head">
-                    <h2>Produtos em destaque</h2>
-                    <p class="muted">Alguns itens pra pessoa já bater o olho e se interessar.</p>
+                    <h2>Mais vendidos</h2>
                 </div>
-
-                <div id="homeFeatured" class="grid grid--3"></div>
+                <div id="homeBestSellers" class="grid grid--3"></div>
             </div>
         </section>
     </main>

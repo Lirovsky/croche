@@ -5,13 +5,15 @@ const STORE = {
         colors: [
             { name: "Caramelo", hex: "#B68A3A" },
             { name: "Verde bandeira", hex: "#2FA56A" },
+            { name: "Verde limão claro", hex: "#A6C94A" },
+            { name: "Verde militar", hex: "#27442a" },
             { name: "Vermelho", hex: "#C7353A" },
             { name: "Azul royal", hex: "#3F5FAF" },
-            { name: "Off-white", hex: "#F2EFEA" },
-            { name: "Verde limão claro", hex: "#A6C94A" },
-            { name: "Azul marinho", hex: "#1F2A44" },
-            { name: "Preto", hex: "#1E1E1E" },
+            { name: "Azul escuro", hex: "#1F2A44" },
             { name: "Rosa pink", hex: "#D84A8C" },
+            { name: "Amarelo Ouro", hex: "#f8e619" },
+            { name: "Off-white", hex: "#F2EFEA" },
+            { name: "Preto", hex: "#1E1E1E" },
             { name: "Lilás", hex: "#C8B6E2" }
         ]
 
@@ -31,6 +33,7 @@ const STORE = {
             description: "Ideal para bolsas ou mochilas. Peso 30g, tamanho 5x5x8",
             badge: "",
             featured: true,
+            sold: 10,
             photos: [
                 "img/polvinho_medio9.jpg",
                 "img/polvinho_medio10.jpg",
@@ -50,6 +53,7 @@ const STORE = {
             description: "Um clássico para o molho de chaves. Peso 17g, tamanho 4x4x5",
             badge: "",
             featured: true,
+            sold: 1,
             photos: [
                 "img/polvinho_pequeno9.jpg",
                 "img/polvinho_pequeno10.jpg",
@@ -66,6 +70,7 @@ const STORE = {
             price: 12.90,
             description: "Um clássico para o molho de chaves. Peso 16g, tamanho 4x4x4",
             badge: "",
+            sold: 0,
             featured: false,
             photos: [
                 "img/polvinho_pequeno12.jpg",
@@ -83,45 +88,13 @@ const STORE = {
             description: "Peso 50g, tamanho 12x12x20",
             badge: "",
             featured: false,
+            sold: 3,
             photos: [
                 "img/polvinho_grande4.jpg",
                 "img/polvinho_grande5.jpg",
                 "img/polvinho_grande3.jpg",
                 "img/polvinho_grande6.jpg",
                 "img/polvinho_grande1.jpg",
-            ]
-        },
-        {
-            id: "key-tulipa",
-            category: "chaveiros",
-            name: "Chaveiro Tulipa",
-            price: 12.90,
-            description: "Chaveiro em forma de tulipa, regulável. Peso 35g, tamanho 5x5x6 cada.",
-            badge: "",
-            featured: false,
-            photos: [
-                "img/tulipa3.jpg",
-                "img/tulipa4.jpg",
-                "img/tulipa5.jpg",
-                "img/tulipa6.jpg",
-                "img/tulipa1.jpg",
-                "img/tulipa2.jpg",
-            ]
-        },
-        {
-            id: "key-lily",
-            category: "chaveiros",
-            name: "Chaveiro Lírio",
-            price: 12.90,
-            description: "Chaveiro em forma de lírio, regulável. Peso 20g, tamanho 4x4x3 cada.",
-            badge: "",
-            featured: false,
-            photos: [
-                "img/lily5.jpg",
-                "img/lily6.jpg",
-                "img/lily4.jpg",
-                "img/lily1.jpg",
-                "img/lily2.jpg",
             ]
         },
         {
@@ -132,6 +105,7 @@ const STORE = {
             description: "Chaveiro em forma de cacto, regulável. Peso 30g, tamanho 5x5x7.",
             badge: "",
             featured: false,
+            sold: 2,
             photos: [
                 "img/cacto6.jpg",
                 "img/cacto5.jpg",
@@ -151,6 +125,7 @@ const STORE = {
             description: "Kit com 4 vasinhos de cactos em crochê. Peso total 300g, tamanho aproximado 10x10x12cm cada.",
             badge: "COMBO",
             featured: true,
+            sold: 1,
             photos: [
                 "img/kit_love3.jpg",
                 "img/kit_love4.jpg",
@@ -168,10 +143,14 @@ const STORE = {
             description: "Vaso em crochê com duas rosas e um botão (gato não incluso). Peso 130, tamanho aproximado 9x9x25cm.",
             badge: "",
             featured: false,
+            sold: 2,
             photos: [
-                "img/rosas1.jpg",
-                "img/rosas2.jpg",
-                "img/rosas4.jpg"
+                "img/rosas7.jpg",
+                "img/rosas8.jpg",
+                "img/rosas9.jpg",
+                "img/rosas10.jpg",
+                "img/rosas11.jpg",
+                "img/rosas12.jpg"
             ]
         },
         {
@@ -182,6 +161,7 @@ const STORE = {
             description: "Vaso em crochê com duas tulipas e um botão (gato não incluso). Peso 120, tamanho aproximado 9x9x22cm.",
             badge: "",
             featured: false,
+            sold: 1,
             photos: [
                 "img/tulipas1.jpg",
                 "img/tulipas2.jpg",
@@ -197,6 +177,7 @@ const STORE = {
             description: "Vasinho em crochê com três rosas pequenas. Peso 50g, tamanho aproximado 7x7x8cm.",
             badge: "",
             featured: true,
+            sold: 0,
             photos: [
                 "img/vasinho_rosa3.jpg",
                 "img/vasinho_rosa4.jpg",
@@ -214,6 +195,7 @@ const STORE = {
             description: "Vasinho de suculentas pequenas. Peso 50g, tamanho aproximado 7x7x8cm.",
             badge: "",
             featured: true,
+            sold: 0,
             photos: [
                 "img/vasinho_suculenta4.jpg",
                 "img/vasinho_suculenta5.jpg",
@@ -231,6 +213,7 @@ const STORE = {
             description: "Vasinho de cacto pequeno. Peso 50g, tamanho aproximado 7x7x8cm.",
             badge: "",
             featured: true,
+            sold: 0,
             photos: [
                 "img/vasinho_cacto3.jpg",
                 "img/vasinho_cacto4.jpg",
@@ -248,6 +231,7 @@ const STORE = {
             description: "Vasinho de flores sortidas. Peso 50g, tamanho aproximado 7x7x8cm.",
             badge: "",
             featured: true,
+            sold: 0,
             photos: [
                 "img/vasinho_sortido4.jpg",
                 "img/vasinho_sortido5.jpg",
@@ -259,13 +243,14 @@ const STORE = {
             ]
         },
         {
-            id: "vasinho_sortido",
+            id: "tulipa_coracao",
             category: "plantas",
             name: "Tulipa Coração",
             price: 79.90,
             description: "Flor de tulipa com recheio em formato de coração.",
             badge: "",
             featured: true,
+            sold: 0,
             photos: [
                 "img/tulipa_vaso1.jpg",
                 "img/tulipa_vaso2.jpg",

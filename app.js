@@ -39,15 +39,12 @@ function createProductCard(product) {
     img.style.cursor = "zoom-in";
 
     img.addEventListener("click", () => {
-        const lightbox = document.getElementById("lightbox");
-        const lightboxImg = document.getElementById("lightboxImg");
-
-        lightboxImg.src = img.src;
-        lightboxImg.alt = product.name;
-
-        lightbox.classList.add("is-open");
-        lightbox.setAttribute("aria-hidden", "false");
+        const photos = product.photos || [];
+        const current = normalizeSrc(img.src);
+        const idx = photos.map(normalizeSrc).indexOf(current);
+        openLightbox(photos, idx >= 0 ? idx : 0, product.name);
     });
+
 
 
     media.appendChild(img);
@@ -95,6 +92,13 @@ function createProductCard(product) {
     const chipCat = document.createElement("span");
     chipCat.className = "chip";
     chipCat.textContent = product.category === "chaveiros" ? "Chaveiro" : "Plantas & Vasinhos";
+
+    const sold = Number(product.sold ?? 0);
+    const chipSold = document.createElement("span");
+    chipSold.className = "chip";
+    chipSold.textContent = `${sold} venda${sold === 1 ? "" : "s"}`;
+    meta.appendChild(chipSold);
+
 
     meta.appendChild(chipCat);
 
@@ -167,12 +171,17 @@ function renderHome() {
     }
 
 
-    const featuredWrap = document.getElementById("homeFeatured");
-    if (featuredWrap) {
-        featuredWrap.innerHTML = "";
-        const featured = (STORE.products || []).filter(p => p.featured);
-        featured.slice(0, 6).forEach(p => featuredWrap.appendChild(createProductCard(p)));
+    const bestWrap = document.getElementById("homeBestSellers");
+    if (bestWrap) {
+        bestWrap.innerHTML = "";
+
+        const best = (STORE.products || [])
+            .slice()
+            .sort((a, b) => Number(b.sold ?? 0) - Number(a.sold ?? 0));
+
+        best.slice(0, 6).forEach(p => bestWrap.appendChild(createProductCard(p)));
     }
+
 
     const highlightsWrap = document.getElementById("homeHighlights");
     if (highlightsWrap) {
@@ -270,6 +279,101 @@ function renderCatalog() {
     paint();
 }
 
+let LB_PHOTOS = [];
+let LB_INDEX = 0;
+let LB_ALT = "";
+
+function normalizeSrc(src) {
+    try {
+        return new URL(src, window.location.href).href;
+    } catch {
+        return String(src || "");
+    }
+}
+
+function ensureLightboxNav(lightbox) {
+    if (!lightbox) return;
+
+    if (!lightbox.querySelector(".lightbox__prev")) {
+        const prev = document.createElement("button");
+        prev.type = "button";
+        prev.className = "lightbox__nav lightbox__prev";
+        prev.setAttribute("aria-label", "Imagem anterior");
+        prev.innerHTML = `
+  <svg viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M15 18l-6-6 6-6" fill="none" stroke="white" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+`;
+        lightbox.appendChild(prev);
+    }
+
+    if (!lightbox.querySelector(".lightbox__next")) {
+        const next = document.createElement("button");
+        next.type = "button";
+        next.className = "lightbox__nav lightbox__next";
+        next.setAttribute("aria-label", "Próxima imagem");
+        next.innerHTML = `
+  <svg viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M9 6l6 6-6 6" fill="none" stroke="white" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+`;
+        lightbox.appendChild(next);
+    }
+}
+
+function updateLightbox() {
+    const lightbox = document.getElementById("lightbox");
+    const img = document.getElementById("lightboxImg");
+    if (!lightbox || !img) return;
+
+    const hasMany = LB_PHOTOS.length > 1;
+    const prevBtn = lightbox.querySelector(".lightbox__prev");
+    const nextBtn = lightbox.querySelector(".lightbox__next");
+
+    if (prevBtn) prevBtn.style.display = hasMany ? "" : "none";
+    if (nextBtn) nextBtn.style.display = hasMany ? "" : "none";
+
+    const src = LB_PHOTOS[LB_INDEX] || "";
+    img.src = src;
+    img.alt = LB_ALT || "";
+}
+
+function openLightbox(photos, index, alt) {
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightboxImg");
+    if (!lightbox || !lightboxImg) return;
+
+    ensureLightboxNav(lightbox);
+
+    LB_PHOTOS = (photos || []).filter(Boolean);
+    LB_ALT = alt || "";
+    LB_INDEX = Math.max(0, Math.min(Number(index || 0), LB_PHOTOS.length - 1));
+
+    lightbox.classList.add("is-open");
+    lightbox.setAttribute("aria-hidden", "false");
+    updateLightbox();
+}
+
+function closeLightbox() {
+    const lightbox = document.getElementById("lightbox");
+    if (!lightbox) return;
+    lightbox.classList.remove("is-open");
+    lightbox.setAttribute("aria-hidden", "true");
+}
+
+function goPrev() {
+    if (LB_PHOTOS.length <= 1) return;
+    LB_INDEX = (LB_INDEX - 1 + LB_PHOTOS.length) % LB_PHOTOS.length;
+    updateLightbox();
+}
+
+function goNext() {
+    if (LB_PHOTOS.length <= 1) return;
+    LB_INDEX = (LB_INDEX + 1) % LB_PHOTOS.length;
+    updateLightbox();
+}
+
+
 function setupMobileNav() {
     const btn = document.getElementById("navToggle");
     const nav = document.getElementById("nav");
@@ -292,31 +396,75 @@ function setupMobileNav() {
 document.addEventListener("DOMContentLoaded", () => {
     setupMobileNav();
 
-    if (document.getElementById("homeFeatured")) renderHome();
+    const yearEl = document.getElementById("year");
+    if (yearEl) yearEl.textContent = String(new Date().getFullYear());
+
+    if (
+        document.getElementById("homeBestSellers") ||
+        document.getElementById("homeHighlights") ||
+        document.getElementById("colorsGrid")
+    ) {
+        renderHome();
+    }
+
     if (document.getElementById("catalogGrid")) renderCatalog();
 
     const lightbox = document.getElementById("lightbox");
     const closeBtn = document.querySelector(".lightbox__close");
+    const lightboxImg = document.getElementById("lightboxImg");
 
     if (lightbox && closeBtn) {
-        closeBtn.addEventListener("click", () => {
-            lightbox.classList.remove("is-open");
-            lightbox.setAttribute("aria-hidden", "true");
-        });
+        ensureLightboxNav(lightbox);
+
+        const prevBtn = lightbox.querySelector(".lightbox__prev");
+        const nextBtn = lightbox.querySelector(".lightbox__next");
+
+        closeBtn.addEventListener("click", closeLightbox);
+
+        if (prevBtn) prevBtn.addEventListener("click", (e) => { e.stopPropagation(); goPrev(); });
+        if (nextBtn) nextBtn.addEventListener("click", (e) => { e.stopPropagation(); goNext(); });
 
         lightbox.addEventListener("click", (e) => {
-            if (e.target === lightbox) {
-                lightbox.classList.remove("is-open");
-                lightbox.setAttribute("aria-hidden", "true");
-            }
+            // clicou fora da imagem => fecha
+            if (e.target === lightbox) closeLightbox();
         });
 
         document.addEventListener("keydown", (e) => {
-            if (e.key === "Escape") {
-                lightbox.classList.remove("is-open");
-                lightbox.setAttribute("aria-hidden", "true");
-            }
-        });
-    }
+            if (!lightbox.classList.contains("is-open")) return;
 
+            if (e.key === "Escape") closeLightbox();
+            if (e.key === "ArrowLeft") goPrev();
+            if (e.key === "ArrowRight") goNext();
+        });
+
+        // Swipe (mobile)
+        if (lightboxImg) {
+            let startX = 0;
+            let startY = 0;
+            let dragging = false;
+
+            lightboxImg.addEventListener("touchstart", (e) => {
+                if (!lightbox.classList.contains("is-open")) return;
+                const t = e.touches[0];
+                startX = t.clientX;
+                startY = t.clientY;
+                dragging = true;
+            }, { passive: true });
+
+            lightboxImg.addEventListener("touchend", (e) => {
+                if (!dragging) return;
+                dragging = false;
+
+                const t = e.changedTouches[0];
+                const dx = t.clientX - startX;
+                const dy = t.clientY - startY;
+
+                // evita disparar em scroll vertical
+                if (Math.abs(dy) > Math.abs(dx)) return;
+
+                if (dx > 40) goPrev();
+                else if (dx < -40) goNext();
+            }, { passive: true });
+        }
+    }
 });

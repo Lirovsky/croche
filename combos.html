@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Lirochê</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-row">
+            <a class="brand" href="index.html">
+                <span class="brand__logo" aria-hidden="true">🧶</span>
+                <span class="brand__name">Lirochê</span>
+            </a>
+
+            <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+
+            <nav class="nav" id="nav">
+                <a class="nav__link" href="index.html">Início</a>
+                <a class="nav__link" href="catalogo.html">Catálogo</a>
+                <a class="nav__link is-active" href="combos.html">Combos</a>
+
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="section">
+            <div class="container">
+                <div class="section-head">
+                    <h2>Combos</h2>
+                    <p class="muted">Aproveite as ofertas especiais.</p>
+                </div>
+
+                <div class="combo-wrap">
+                    <article class="combo">
+                        <div class="combo__head">
+                            <h3>Combo Vasinhos</h3>
+                            <!-- <span class="tag">Mais pedido</span> -->
+                        </div>
+
+                        <ul class="combo__list">
+                            <li><strong>1</strong> por <strong>R$ 29,90</strong></li>
+                            <li><strong>2</strong> por <strong>R$ 54,90</strong></li>
+                            <li><strong>3</strong> por <strong>R$ 79,90</strong> <span class="pill">+ 50% OFF em
+                                    chaveiro</span></li>
+                            <li><strong>4</strong> por <strong>R$ 109,90</strong> <span class="pill">+ chaveiro
+                                    grátis</span></li>
+                        </ul>
+
+                        <p class="muted small">Observação: combos podem ser mistos (cores/modelos) ou iguais.</p>
+                    </article>
+
+                    <article class="combo">
+                        <div class="combo__head">
+                            <h3>Combo Floral</h3>
+                        </div>
+
+                        <ul class="combo__list">
+                            <li><strong>2 vasos florais</strong> por <strong>R$ 139,90</strong></li>
+                        </ul>
+                    </article>
+
+                    <article class="combo">
+                        <div class="combo__head">
+                            <h3>Combo Polvinhos</h3>
+                        </div>
+
+                        <ul class="combo__list">
+                            <li><strong>Pequeno + Médio</strong> por <strong>R$ 27,90</strong></li>
+                            <li><strong>Pequeno + Médio + Grande</strong> por <strong>R$ 59,90</strong></li>
+                        </ul>
+                    </article>
+
+                    <article class="combo">
+                        <div class="combo__head">
+                            <h3>Combo Chaveirinhos</h3>
+                        </div>
+
+                        <ul class="combo__list">
+                            <li><strong>1</strong> por <strong>R$ 12,90</strong></li>
+                            <li><strong>2</strong> por <strong>R$ 22,90</strong></li>
+                            <li><strong>3</strong> por <strong>R$ 29,90</strong></li>
+                        </ul>
+                    </article>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+
+    <footer class="site-footer">
+        <div class="container footer-row">
+            <p class="muted small">© <span id="year"></span> Lirochê</p>
+            <p class="muted small">Feito com carinho 🧵</p>
+        </div>
+    </footer>
+    <div class="lightbox" id="lightbox" aria-hidden="true">
+        <button class="lightbox__close" aria-label="Fechar imagem">&times;</button>
+        <img id="lightboxImg" alt="">
+    </div>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
