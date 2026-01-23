@@ -205,7 +205,8 @@ function renderCatalog() {
     const empty = document.getElementById("emptyState");
     if (!grid) return;
 
-    let activeTab = "plantas";
+    const initialBtn = document.querySelector('.tab.is-active[data-tab]');
+    let activeTab = (initialBtn && initialBtn.dataset && initialBtn.dataset.tab) ? initialBtn.dataset.tab : "plantas";
     let query = "";
     let sort = "featured";
 
@@ -243,6 +244,14 @@ function renderCatalog() {
 
         items.forEach(p => grid.appendChild(createProductCard(p)));
     }
+
+
+    // sincroniza o estado inicial (evita mismatch entre HTML e JS em cache)
+    document.querySelectorAll(".tab").forEach(b => {
+        const isOn = b.dataset.tab === activeTab;
+        b.classList.toggle("is-active", isOn);
+        b.setAttribute("aria-selected", isOn ? "true" : "false");
+    });
 
     // tabs
     document.querySelectorAll(".tab").forEach(btn => {
