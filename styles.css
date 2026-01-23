@@ -36,11 +36,14 @@ html {
 
 body {
     margin: 0;
-    min-height: 100%;
-    background: transparent;
-    /* importante: não duplicar o fundo */
+    min-height: 100vh;
+    background: transparent; /* importante: não duplicar o fundo */
     font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
     color: var(--ink);
+
+    /* Sticky footer (mantém o footer grudado no fundo quando a página é curta) */
+    display: flex;
+    flex-direction: column;
 }
 
 a {
@@ -517,7 +520,13 @@ img {
     background: rgba(255, 255, 255, .55);
 }
 
+main {
+    flex: 1 0 auto;
+}
+
 .site-footer {
+    margin-top: auto;
+
     border-top: 1px solid var(--line);
     background: rgba(255, 255, 255, .45);
 }

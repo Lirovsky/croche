@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Lirochê</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-row">
+            <a class="brand" href="index.html">
+                <span class="brand__logo" aria-hidden="true">🧶</span>
+                <span class="brand__name">Lirochê</span>
+            </a>
+
+            <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+
+            <nav class="nav" id="nav">
+                <a class="nav__link" href="index.html">Catálogo</a>
+                <a class="nav__link is-active" href="personalizacao.html">Personalização</a>
+                <a class="nav__link" href="combos.html">Combos</a>
+
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="section" id="cores">
+            <div class="container">
+                <div class="section-head">
+                    <h2 id="personalTitle">Cores disponíveis</h2>
+                    <p class="muted" id="personalText"></p>
+                </div>
+
+                <div class="colors" id="colorsGrid"></div>
+
+                <p class="muted small" style="margin-top: 16px;">
+                    As cores podem variar um pouco conforme o lote do fio e a iluminação da foto.
+                </p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="section-head">
+                    <h2>Mais vendidos</h2>
+                </div>
+                <div id="homeBestSellers" class="grid grid--3"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-row">
+            <p class="muted small">© <span id="year"></span> Lirochê</p>
+            <p class="muted small">Feito com carinho 🧵</p>
+        </div>
+    </footer>
+    <div class="lightbox" id="lightbox" aria-hidden="true">
+        <button class="lightbox__close" aria-label="Fechar imagem">&times;</button>
+        <img id="lightboxImg" alt="">
+    </div>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>

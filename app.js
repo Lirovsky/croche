@@ -189,7 +189,7 @@ function renderHome() {
         const picks = (STORE.products || []).filter(p => p.featured).slice(0, 4);
         picks.forEach(p => {
             const mini = document.createElement("a");
-            mini.href = "catalogo.html";
+            mini.href = "index.html";
             mini.className = "promo";
             mini.innerHTML = `<strong>${p.name}</strong><span class="muted">${moneyBRL(p.price)}</span>`;
             highlightsWrap.appendChild(mini);
@@ -205,7 +205,7 @@ function renderCatalog() {
     const empty = document.getElementById("emptyState");
     if (!grid) return;
 
-    let activeTab = "chaveiros";
+    let activeTab = "plantas";
     let query = "";
     let sort = "featured";
 

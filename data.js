@@ -53,7 +53,7 @@ const STORE = {
             description: "Um clássico para o molho de chaves. Peso 17g, tamanho 4x4x5",
             badge: "",
             featured: true,
-            sold: 1,
+            sold: 2,
             photos: [
                 "img/polvinho_pequeno9.jpg",
                 "img/polvinho_pequeno10.jpg",
@@ -140,7 +140,7 @@ const STORE = {
             category: "plantas",
             name: "Vaso Rosa da Paixão",
             price: 79.90,
-            description: "Vaso em crochê com duas rosas e um botão (gato não incluso). Peso 130, tamanho aproximado 9x9x25cm.",
+            description: "Vaso em crochê com três rosas(gato não incluso). Peso 130, tamanho aproximado 9x9x25cm.",
             badge: "",
             featured: false,
             sold: 2,
@@ -151,6 +151,24 @@ const STORE = {
                 "img/rosas10.jpg",
                 "img/rosas11.jpg",
                 "img/rosas12.jpg"
+            ]
+        },
+        {
+            id: "vaso_girassol",
+            category: "plantas",
+            name: "Vaso Girassol",
+            price: 79.90,
+            description: "Vaso em crochê com dois girassóis. Peso 130, tamanho aproximado 9x9x25cm.",
+            badge: "",
+            featured: false,
+            sold: 0,
+            photos: [
+                "img/vaso_girassol1.jpg",
+                "img/vaso_girassol2.jpg",
+                "img/vaso_girassol3.jpg",
+                "img/vaso_girassol4.jpg",
+                "img/vaso_girassol5.jpg",
+                "img/vaso_girassol6.jpg"
             ]
         },
         {
